@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Fitness Checker Using BMI</h1>
+        <p>Your personalized health guide</p>
+    </header>
+    
+    <main>
+        <!-- Sign-Up Section -->
+        <section id="signup-section">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <label for="signup-username">Username:</label>
+                <input type="text" id="signup-username" required>
+                
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" required>
+                
+                <label for="signup-name">Name:</label>
+                <input type="text" id="signup-name" required>
+                
+                <label for="signup-dob">Date of Birth:</label>
+                <input type="date" id="signup-dob" required>
+                
+                <label for="signup-contact">Contact:</label>
+                <input type="text" id="signup-contact" required>
+                
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" required>
+                
+                <button type="button" onclick="signup()">Sign Up</button>
+            </form>
+            <p id="signup-message"></p>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login-section" style="display:none;">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" required>
+                
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                
+                <button type="button" onclick="login()">Login</button>
+            </form>
+            <p id="login-message"></p>
+        </section>
+
+        <!-- Main Content Sections -->
+        <section id="main-content" style="display:none;">
+            <!-- Navigation -->
+            <nav>
+                <button onclick="showSection('bmi-calculator')">BMI Calculator</button>
+                <button onclick="showSection('calorie-calculator')">Calorie Calculator</button>
+                <button onclick="showSection('history')">History</button>
+                <button onclick="showSection('profile')">Profile</button>
+                <button onclick="logout()">Logout</button>
+            </nav>
+
+            <!-- BMI Calculator Section -->
+            <section id="bmi-calculator" style="display:none;">
+                <h2>BMI Calculator</h2>
+                <p>BMI is a measure of body fat based on height and weight that applies to adult men and women. Use the form below to calculate your BMI and understand your body weight status.</p>
+                <form id="bmi-form">
+                    <label for="bmi-weight">Weight (kg):</label>
+                    <input type="number" id="bmi-weight" required>
+                    
+                    <label for="bmi-height">Height (cm):</label>
+                    <input type="number" id="bmi-height" required>
+                    
+                    <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+                </form>
+                <p id="bmi-result"></p>
+            </section>
+            
+            <!-- Calorie Calculator Section -->
+            <section id="calorie-calculator" style="display:none;">
+                <h2>Calorie Requirement Calculator</h2>
+                <p>Caloric needs vary based on age, gender, weight, height, and activity level. Use this calculator to estimate your daily calorie intake for maintaining, losing, or gaining weight.</p>
+                <form id="calorie-form">
+                    <label for="calorie-age">Age:</label>
+                    <input type="number" id="calorie-age" required>
+                    
+                    <label for="calorie-gender">Gender:</label>
+                    <select id="calorie-gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    
+                    <label for="calorie-weight">Weight (kg):</label>
+                    <input type="number" id="calorie-weight" required>
+                    
+                    <label for="calorie-height">Height (cm):</label>
+                    <input type="number" id="calorie-height" required>
+                    
+                    <label for="activity-level">Activity Level:</label>
+                    <select id="activity-level" required>
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                        <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                        <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
+                        <option value="1.9">Super active (very hard exercise/sports & physical job)</option>
+                    </select>
+                    
+                    <button type="button" onclick="calculateCalories()">Calculate Calories</button>
+                </form>
+                <p id="calorie-result"></p>
+            </section>
+
+            <!-- History Section -->
+            <section id="history" style="display:none;">
+                <h2>History</h2>
+                <p>View your past BMI and calorie calculations here.</p>
+                <div id="history-content"></div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" style="display:none;">
+                <h2>Profile</h2>
+                <p>View and edit your profile information here.</p>
+                <div id="profile-content"></div>
+                <form id="profile-form">
+                    <label for="profile-name">Name:</label>
+                    <input type="text" id="profile-name">
+                    
+                    <label for="profile-dob">Date of Birth:</label>
+                    <input type="date" id="profile-dob">
+                    
+                    <label for="profile-contact">Contact:</label>
+                    <input type="text" id="profile-contact">
+                    
+                    <label for="profile-email">Email:</label>
+                    <input type="email" id="profile-email">
+                    
+                    <button type="button" onclick="updateProfile()">Update Profile</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Stay healthy and fit!</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
